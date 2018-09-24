@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ListPrestationsComponent } from './containers/list-prestations/list-prestations.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: []
+  declarations: [ListPrestationsComponent]
 })
 export class PrestationModule { }
