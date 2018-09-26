@@ -4,14 +4,12 @@ import { ListPrestationsComponent } from './containers/list-prestations/list-pre
 import { PrestationsRoutingModuleModule } from './prestations-routing-module.module';
 import { SharedModule } from '../shared/shared.module';
 import { PrestationComponent } from '../prestation/components/prestation/prestation.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
     PrestationsRoutingModuleModule,
-    SharedModule,
-    FontAwesomeModule
+    SharedModule
   ],
   declarations: [ListPrestationsComponent, PrestationComponent]
 })
