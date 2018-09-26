@@ -1,3 +1,9 @@
-<app-tableau [headers]="listHeaders">
+<app-tableau [headers]="listHeaders" [addRow]="row">
   <app-prestation *ngFor="let presta of collection" [item]="presta"></app-prestation>
+  <!-- <div>
+    <a [routerLink]="prestation/add">
+      <fa-icon [icon]="faPlusCircle"></fa-icon>
+      Ajouter une prestation
+    </a>
+  </div> -->
 </app-tableau>
