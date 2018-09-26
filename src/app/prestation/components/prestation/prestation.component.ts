@@ -3,7 +3,7 @@ import { Prestation } from '../../../shared/models/prestation';
 import { State } from '../../../shared/enums/state.enum';
 
 @Component({
-  selector: 'app-prestation',
+  selector: '[app-prestation], app-prestation',
   templateUrl: './prestation.component.html',
   styleUrls: ['./prestation.component.scss']
 })
