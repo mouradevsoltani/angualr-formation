@@ -4,13 +4,21 @@ import { ListPrestationsComponent } from './containers/list-prestations/list-pre
 import { PrestationsRoutingModuleModule } from './prestations-routing-module.module';
 import { SharedModule } from '../shared/shared.module';
 import { PrestationComponent } from '../prestation/components/prestation/prestation.component';
+import { FormComponent } from '../prestation/components/form/form.component';
+import { AddPrestationComponent } from '../prestation/containers/add-prestation/add-prestation.component';
+import { EditPrestationComponent } from '../prestation/containers/edit-prestation/edit-prestation.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormReactiveComponent } from '../prestation/components/form-reactive/form-reactive.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PrestationsRoutingModuleModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [ListPrestationsComponent, PrestationComponent]
+  // tslint:disable-next-line:max-line-length
+  declarations: [ListPrestationsComponent, PrestationComponent, FormComponent, AddPrestationComponent, EditPrestationComponent, FormReactiveComponent]
 })
 export class PrestationModule { }

@@ -23,6 +23,11 @@ export class PrestationsService {
     this._collection = col;
   }
 
+  // add item in collection
+  public add(item: Prestation): void {
+    this.collection.push(item);
+  }
+
   // get item in collection by id
 
   // update
