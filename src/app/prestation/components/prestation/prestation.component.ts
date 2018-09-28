@@ -3,6 +3,7 @@ import { Prestation } from '../../../shared/models/prestation';
 import { State } from '../../../shared/enums/state.enum';
 import { PrestationsService } from '../../services/prestations.service';
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: '[app-prestation], app-prestation',
@@ -14,7 +15,8 @@ export class PrestationComponent implements OnInit {
   public faTrashAlt = faTrashAlt;
   @Input() item: Prestation;
   constructor(
-    private pestationService: PrestationsService
+    private pestationService: PrestationsService,
+    private router: Router
   ) {
     console.log(this.item);
    }
@@ -33,6 +35,9 @@ export class PrestationComponent implements OnInit {
     this.pestationService.delete(this.item).then((data) => {
       this.pestationService.msg$.next('Prestation supprimée !');
     });
+  }
+  public edit() {
+    this.router.navigate(['prestations/edit', this.item.id]);
   }
 
 }

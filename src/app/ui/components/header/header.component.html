@@ -11,8 +11,19 @@
   </div>
 
   <div>
+    <span *ngIf="(log$ | async) === 'login'; else other_content">
+      {{ user }}
+      <button (click)="logout()">Logout</button>
+    </span>
+
+    <!-- <fa-icon [icon]="faSignInAlt"></fa-icon> -->
+
+    <ng-template #other_content>
+      <button (click)="login()">Login</button>
+    </ng-template>
+
     <span>
-        <fa-icon [icon]="faUser"></fa-icon>
+      <fa-icon [icon]="faUser"></fa-icon>
     </span>
   </div>
 

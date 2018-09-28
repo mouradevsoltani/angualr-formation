@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject } from 'rxjs';
+import { LoginService } from '../../../prestation/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -12,15 +14,31 @@ export class HeaderComponent implements OnInit {
   public title = 'My crm';
   public faBars = faBars;
   public faUser = faUser;
+  public faSignInAlt = faSignInAlt;
   public open = true;
 
-  constructor() { }
+  public user: string;
+  public log$: BehaviorSubject<string>;
+
+
+  constructor(
+    private loginService: LoginService
+  ) { }
 
   ngOnInit() {
+    this.log$ = this.loginService.log$;
+    this.user = this.loginService.user;
   }
 
   public toggle() {
     this.open = !this.open;
   }
 
+  public login() {
+    this.loginService.login();
+  }
+
+  public logout() {
+    this.loginService.logout();
+  }
 }

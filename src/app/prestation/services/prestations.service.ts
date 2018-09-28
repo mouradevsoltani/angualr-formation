@@ -72,4 +72,8 @@ export class PrestationsService {
     });
     // return this.http.delete(`urlapi/prestations/${item.id}`);
   }
+  getPrestation(id: string): Observable<Prestation> {
+    return this.itemsCollection.doc<Prestation>(id).valueChanges();
+    // return this.http.get(`urlaspi/prestations/${id}`);
+  }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PrestationsService } from '../../services/prestations.service';
 
 @Component({
   selector: 'app-edit-prestation',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPrestationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private acitvatedRoute: ActivatedRoute,
+    private prestationService: PrestationsService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
