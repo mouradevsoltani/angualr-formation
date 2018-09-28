@@ -1,27 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Prestation } from '../../../shared/models/prestation';
 import { PrestationsService } from '../../services/prestations.service';
 import { State } from '../../../shared/enums/state.enum';
 import { Row } from '../../../shared/interfaces/row';
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlusCircle, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-prestations',
   templateUrl: './list-prestations.component.html',
   styleUrls: ['./list-prestations.component.scss']
 })
-export class ListPrestationsComponent implements OnInit {
+export class ListPrestationsComponent implements OnInit, OnDestroy {
 
-  public collection: Prestation[];
+  // public collection: Prestation[];
+  public collection$: Observable<Prestation[]>;
   public states = Object.values(State);
   public listHeaders: string[];
   public faPlusCircle = faPlusCircle;
+  public faTrash = faTrash;
   public row: Row;
+  // public sub: Subscription;
   constructor(private prestationService: PrestationsService) { }
 
 
   ngOnInit() {
-    this.collection = this.prestationService.collection;
+    this.collection$ = this.prestationService.collection$;
+    // this.sub = this.prestationService.collection.subscribe((data) => {
+    //   this.collection = data;
+    //   console.log(data);
+    // });
     this.listHeaders = [
         'Type',
         'Client',
@@ -29,7 +37,8 @@ export class ListPrestationsComponent implements OnInit {
         'Tjm HT',
         'Total HT',
         'Total TTC',
-        'Action'
+        'Action',
+        'Delete'
     ];
 
     this.row = {
@@ -39,4 +48,7 @@ export class ListPrestationsComponent implements OnInit {
     };
   }
 
+  ngOnDestroy() {
+    // this.sub.unsubscribe();
+  }
 }

@@ -10,6 +10,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { Router } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { environment } from 'src/environments/environment.firebase';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 // the second parameter 'fr' is optional
 registerLocaleData(localeFr, 'fr');
@@ -22,6 +28,9 @@ registerLocaleData(localeFr, 'fr');
     BrowserModule,
     UiModule,
     NgbModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    HttpClientModule,
     AppRoutingModule,
     LoginModule,
     PageNotFoundModule

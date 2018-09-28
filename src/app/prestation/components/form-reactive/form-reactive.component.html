@@ -1,32 +1,34 @@
 <div class="container">
-    <form novalidate (ngSubmit)="process()" [formGroup]="form">
-      <div class="form-group">
-        <label for="type">Type prestation</label>
-        <input type="text" class="form-control" id="type" formControlName="type_presta">
-        <div class="alert alert-danger" *ngIf="">Champs invalide</div>
-      </div>
-      <div class="form-group">
-        <label for="client">Client</label>
-        <input type="text" class="form-control" id="client" formControlName="client">
-      </div>
-      <div class="form-group">
-        <label for="nbjour">NB Jours</label>
-        <input type="text" class="form-control" id="nbjours" formControlName="nb_jours">
-      </div>
-      <div class="form-group">
-        <label for="tjmht">Tjm Ht</label>
-        <input type="text" class="form-control" id="tjmht" formControlName="tjm_ht">
-      </div>
-      <div class="form-group">
-        <label for="tva">Taux tva</label>
-        <input type="text" class="form-control" id="tva" formControlName="taux_tva">
-      </div>
-      <div class="form-group">
-        <label for="state">TVA</label>
-        <select class=form-control id="state" formControlName="state">
-          <option *ngFor=""></option>
-        </select>
-      </div>
-      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+  <form novalidate (ngSubmit)="process()" [formGroup]="form">
+    <div class="form-group">
+      <label for="type">Type prestation</label>
+      <input type="text" class="form-control" id="type" formControlName="type_presta">
+      <div class="alert alert-danger" *ngIf="isError('type_presta')">Champs
+        invalide</div>
+    </div>
+    <div class="form-group">
+      <label for="client">Client</label>
+      <input type="text" class="form-control" id="client" formControlName="client">
+      <div class="alert alert-danger" *ngIf="isError('client')">Champs invalide</div>
+    </div>
+    <div class="form-group">
+      <label for="nbjour">NB Jours</label>
+      <input type="text" class="form-control" id="nbjours" formControlName="nb_jours">
+    </div>
+    <div class="form-group">
+      <label for="tjmht">Tjm Ht</label>
+      <input type="text" class="form-control" id="tjmht" formControlName="tjm_ht">
+    </div>
+    <div class="form-group">
+      <label for="tva">Taux tva</label>
+      <input type="text" class="form-control" id="tva" formControlName="taux_tva">
+    </div>
+    <div class="form-group">
+      <label for="state">TVA</label>
+      <select class=form-control id="state" formControlName="state">
+        <option *ngFor=""></option>
+      </select>
+    </div>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

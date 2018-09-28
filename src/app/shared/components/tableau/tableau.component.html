@@ -10,4 +10,5 @@
       <app-btn-tab *ngIf="addRow"></app-btn-tab>
     </tbody>
   </table>
+  <div *ngIf="msg$ | async; let msg">{{ msg }}</div>
 </div>
